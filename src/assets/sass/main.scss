@@ -1,0 +1,161 @@
+//init fonts
+@font-face {
+  font-family: 'Nunito';
+  src: url('//s1.qq.com/static/fonts/Nunito-Regular.eot');
+  src: local('fonts/Nunito-Regular'), url('//s1.qq.com/static/fonts/Nunito-Regular.eot?#iefix') format('embedded-opentype'), url('//s1.qq.com/static/fonts/Nunito-Regular.woff') format('woff'), url('//s1.qq.com/static/fonts/Nunito-Regular.ttf') format('truetype'), url('//s1.qq.com/static/fonts/Nunito-Regular.svg#Roboto') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+//----------------------------------------------custom main css------------------------------------------------//
+body {font-family: Nunito; color: $body-color; font-size: 14px;}
+ul,li {list-style: none; margin: 0; padding: 0;}
+a {
+	color: $body-color;
+	&:hover {color: $body-color;}
+	&:visited {color: $body-color;}
+	text-decoration: none;
+}
+
+//font
+.font-weight-bold {font-weight: bold;}
+.font-size-12 {font-size: 12px;}
+.font-size-14 {font-size: 14px;}
+.font-size-16 {font-size: 16px;}
+.font-size-18 {font-size: 18px;}
+.font-size-20 {font-size: 20px;}
+.font-size-24 {font-size: 24px;}
+
+//btn style
+.btn-light {background-color: #eef2f7; border-color: #eef2f7;}
+
+//margin
+.ml-1 {margin-left: 0.25rem!important;}
+.ml-2 {margin-left: 0.5rem!important;}
+.ml-3 {margin-left: 1rem!important;}
+.ml-4 {margin-left: 1.5rem!important;}
+.mr-1 {margin-right: 0.25rem!important;}
+.mr-2 {margin-right: 0.5rem!important;}
+.mr-3 {margin-right: 1rem!important;}
+.mr-4 {margin-right: 1.5rem!important;}
+
+//padding
+.pl-1 {padding-left:  0.25rem!important;}
+.pl-2 {padding-left:  0.5rem!important;}
+.pl-3 {padding-left:  1rem!important;}
+.pl-4 {padding-left:  1.5rem!important;}
+.pr-1 {padding-right: 0.25rem!important;}
+.pr-2 {padding-right: 0.5rem!important;}
+.pr-3 {padding-right:  1rem!important;}
+.pr-4 {padding-right:  1.5rem!important;}
+.pt-1 {padding-top: 0.25rem!important;}
+.pt-2 {padding-top: 0.5rem!important;}
+.pt-3 {padding-top:  1rem!important;}
+.pt-4 {padding-top:  1.5rem!important;}
+.pd-1 {padding-bottom: 0.25rem!important;}
+.pd-2 {padding-bottom: 0.5rem!important;}
+.pd-3 {padding-bottom:  1rem!important;}
+.pd-4 {padding-bottom:  1.5rem!important;}
+
+//text-color
+.body-color {color: $body-color!important;}
+.text-red {color: $red!important;}
+.text-gray {color: $gray-500!important;}
+.text-blue {color: $blue!important;}
+
+//bg-color
+.gray-light {background-color: darken($search-bg,1%);}
+
+//animate
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.dropdown-animated {
+	-webkit-animation-name: DropDownSlide;
+	animation-name: DropDownSlide;
+	-webkit-animation-duration: .3s;
+	animation-duration: .3s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	margin: 0;
+	position: absolute;
+	z-index: 1000;
+}
+@-webkit-keyframes DropDownSlide {
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+	0% {
+		-webkit-transform: translateY(20px);
+		transform: translateY(20px)
+	}
+}
+@keyframes DropDownSlide {
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+	0% {
+		-webkit-transform: translateY(20px);
+		transform: translateY(20px)
+	}
+}
+
+//scroll bar
+div,ul{
+    ::-webkit-scrollbar {width: 5px; height: 5px}
+    ::-webkit-scrollbar-track {background-color: $body-bg; border-radius: 2px}
+    ::-webkit-scrollbar-thumb {background: $gray-400; border-radius: 10px;}
+    ::-webkit-scrollbar-corner {background-color: transparent;}
+}
+//table
+.columns-fit {
+  .el-table__header-wrapper, .el-table__body-wrapper {
+    visibility: hidden;
+  }
+
+  &.visible {
+    .el-table__header-wrapper, .el-table__body-wrapper {
+      visibility: visible;
+    }
+  }
+
+  .el-table__body-wrapper {
+    overflow: auto;
+  }
+}
+.el-table .cell {
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+    overflow: auto;
+  }
+//search-res
+.nav-search {
+	.search-pills {
+		.nav-item {
+			text-align: center; flex-basis: 0; flex-grow: 1; padding: 3px;
+			.nav-link {
+				color: $gray-600;
+			}
+			.active {background-color: $white; border-radius: .25rem; color: $body-color;}
+		}
+	}
+	.tab-content {
+		margin-top: 10px;
+		.all-res {}
+		.dropdown-item {padding: 6px 0;}
+		.tab-pane {max-height: 550px; overflow-y: scroll;}
+		.active {display:block!important;}
+	}
+}
+.modal-header {
+	.close {border: none; background: none;}
+}
+.el-tooltip__popper {width: 200px; text-align: center;}
+.el-table__cell {width: auto;}

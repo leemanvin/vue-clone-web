@@ -1,0 +1,15 @@
+table.dataTable , table.dataTable {
+	tbody th {padding: 10px 18px 10px 10px;}
+}
+.index-table {
+	tbody {
+		.td1 {background-color: $body-bg!important;}
+	}
+	
+	.td3,.td4,.td5,.td6,.td7,.td8,.td9 {text-align: right;}
+}
+@media (max-width:1024px){
+	.index-table {
+		overflow-x: scroll; padding-bottom: 5px;
+	}
+}

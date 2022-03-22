@@ -1,0 +1,150 @@
+//nav css
+.app-nav {
+	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+	.navbar {
+		justify-content: space-between; padding: 0;
+		.navbar-brand {align-self: center;}
+		div {
+			&:first-child {
+				.nav-item {
+					position: relative;
+					.nav-link {color: #292d32;}
+					.hover-dropdown {
+						display: none;
+						border-color: #e4eaf2;
+						box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+						-webkit-box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+						padding: 10px;
+						.dropdown-item {padding: 5px 10px; font-size: 14px;}
+					}
+					.show {display: block;}
+					a {padding: 22px 14px;}
+				}
+			}
+		}
+		.phone-menu {
+			display: none;
+			.phone-menu-btn {font-size: 24px;}
+			.phone-search-btn {font-size: 18px;}
+		}
+	}
+}
+.nav-search {
+		background-color: $search-bg;
+		display: flex;
+		position: relative;
+		input {
+			background: none; box-shadow: none;
+			&::-webkit-input-placeholder {
+			/* WebKit browsers */
+			color: #ccc;
+			}
+			&::-moz-placeholder {
+			/* Mozilla Firefox 4 to 18 */
+			color: #ccc;
+			}
+			&::-ms-input-placeholder {
+			/* Internet Explorer 10+ */
+			color: #ccc;
+			}
+		}
+		i {color: #ccc;}
+		.dropdown-menu {
+			top: 40px;
+			right: 0;
+			width: 400px;
+			border-color: $border-color;
+			h4 {}
+			.dropdown-item {
+				a {
+					.symbol {}
+				}
+			}
+		}
+		.search_show {display: block;}
+	}
+.app-logo {
+	width: 144px;
+	height: 33px;
+	padding: 0;
+	background: url(https://s1.coincarp.com/static/images/logo.svg?v=3) no-repeat;
+}
+.phone-menu-list,.phone-search-list {
+	position: fixed; width: 100%; height: 100%; top: 0; z-index: 9999; display: none; right: 100%;
+}
+.phone-menu-list {
+	.menu-brand { padding-top: 12px; padding-bottom: 12px; border-bottom: 1px solid $border-color;}
+	.phone-menu-item {
+		a {
+			padding: 10px 0;
+			&:first-child { border-bottom: 1px solid $border-color; }
+		}
+		.phone-menu-item-son {
+			max-height: 0;
+			overflow-y: hidden;
+			a {
+				padding: 5px 0;
+				&:first-child {border-bottom: none;}
+				&:last-child {border-bottom: 1px solid $border-color; padding-bottom: 10px;}
+			}
+		}
+		.show {max-height: 200px;}
+		.phone-menu-item-son,.show {transition: max-height .3s ease 0s;}
+	}
+}
+.phone-search-list {
+	.phone-search-head {
+		border-bottom: 1px solid $border-color;
+		.btn {color: $gray-600; background-color: #eef2f7; border-color: #dee2e6;}
+	}
+	.phone-search-res {
+		h4 {color: $gray-400;}
+		ul {border-top: 1px solid $border-color;
+			li {
+				a {
+					padding: 10px 0; border-bottom: 1px solid $border-color;
+					.rank {color: $gray-400;}
+				}
+			}
+		}
+	}
+}
+.search-dropdown {
+	.search-tabs {
+		padding: 5px; border-radius: .25rem;
+		li {
+			flex-basis: 0; flex-grow: 1; text-align: center;
+			a {padding: .5rem .8rem; display: block; cursor: pointer; font-weight: bold; color: $gray-500;}
+			.active {background-color: $white; border-radius: .25rem; color: $body-color;}
+		}
+	}
+	.tab-content {
+		padding: 0 5px; max-height: 550px; overflow-y: scroll;
+	}
+	.active {
+		display: block;
+	}
+}
+//phone nav css
+@media screen and (max-width: 1024px) {
+	.app-nav {
+		padding-top: 10px; padding-bottom: 10px;
+		.navbar {
+			.navbar-nav,.nav-search {display: none;}
+			.phone-menu {display: flex;}
+			.app-nav-left {
+				justify-content: space-between;
+				width: 100%;
+			}
+		}
+	}
+	.phone-menu-list,.phone-search-list {display: block;}
+	.phone-menu-list,
+	.phone-search-list,
+	.phone_menu_open,
+	.phone_search_open{
+		transition: right .3s ease 0s;
+	}
+	.phone_menu_open,.phone_search_open {right: 0;}
+	.phone-search-list {overflow-y: scroll;}
+}

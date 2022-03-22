@@ -1,0 +1,19 @@
+$white:    #fff !default;
+$gray-100: #f1f3fa;
+$gray-200: #eef2f7;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #98a6ad;
+$gray-700: #919ca7;
+$gray-800: #343a40 !default;
+$gray-900: #474d56;
+$black:    #000 !default;
+$red: #ea3943;
+$blue: #007bff !default;
+//
+$body-color: darken($gray-800,5%);
+$body-bg: $white;
+$border-color: #e4eaf2;
+//search
+$search-bg: #f1f3fa;

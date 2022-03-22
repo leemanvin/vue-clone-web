@@ -1,0 +1,32 @@
+.footer {
+	border-top: 1px solid $border-color; padding: 2rem .75rem;
+	.about-div {
+		.footer-brand {
+			background: url(//s1.coincarp.com/static/images/logo.svg?v=3) no-repeat;
+			width: 145px;
+			height: 33px;
+			display: block;
+		}
+		p {width: 60%;}
+		.copyright {
+			color: $gray-500;
+			a {color: $body-color;}
+		}
+	}
+	.footer-link {
+		width: 50%;
+		a {color: $gray-500;}
+	}
+	
+}
+//phone
+@media screen and (max-width:1024px) {
+	.footer {
+		.about-div {
+			.footer-brand {margin: 0 auto;}
+			p {width: 100%;}
+			p,.copyright { text-align: center;}
+		}
+		.footer-link {margin-top: 1rem; text-align: center;}
+	}
+}
