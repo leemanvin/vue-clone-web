@@ -1,6 +1,18 @@
+//topbar css
+.top-bar {
+	background-color: #313a46;
+	span {
+		color: #838c96;
+	}
+	a {
+		color: $blue;
+		span {color: $blue;}
+	}
+}
 //nav css
 .app-nav {
-	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+	// box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+	border-bottom: 1px solid #e4eaf2;
 	.navbar {
 		justify-content: space-between; padding: 0;
 		.navbar-brand {align-self: center;}

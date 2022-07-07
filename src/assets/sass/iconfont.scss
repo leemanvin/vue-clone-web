@@ -1,0 +1,375 @@
+// @font-face {
+//   font-family: "iconfont"; /* Project id 2649327 */
+//   src: url('../fonts/iconfont.woff2?t=1626658067343') format('woff2'),
+//        url('../fonts/iconfont.woff?t=1626658067343') format('woff'),
+//        url('../fonts/iconfont.ttf?t=1626658067343') format('truetype');
+// }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bank:before {
+  content: "\e6cf";
+}
+
+.icon-third_party:before {
+  content: "\e826";
+}
+
+.icon-credit_card:before {
+  content: "\e65b";
+}
+
+.icon-global:before {
+  content: "\e732";
+}
+
+.icon-rpc:before {
+  content: "\e63e";
+}
+
+.icon-faucets:before {
+  content: "\e61f";
+}
+
+.icon-youtube1:before {
+  content: "\ea07";
+}
+
+.icon-discord:before {
+  content: "\e724";
+}
+
+.icon-shrink-screen:before {
+  content: "\e8bb";
+}
+
+.icon-full-screen:before {
+  content: "\e655";
+}
+
+.icon-event:before {
+  content: "\e62e";
+}
+
+.icon-notice:before {
+  content: "\e61e";
+}
+
+.icon-position:before {
+  content: "\e61c";
+}
+
+.icon-ratio:before {
+  content: "\e61b";
+}
+
+.icon-value:before {
+  content: "\e619";
+}
+
+.icon-company:before {
+  content: "\e618";
+}
+
+.icon-fire:before {
+  content: "\e60d";
+}
+
+.icon-calendar:before {
+  content: "\e60f";
+}
+
+.icon-fabulous:before {
+  content: "\e60e";
+}
+
+.icon-success:before {
+  content: "\e6a0";
+}
+
+.icon-switch:before {
+  content: "\e630";
+}
+
+.icon-warning:before {
+  content: "\e671";
+}
+
+.icon-error:before {
+  content: "\e764";
+}
+
+.icon-email-success:before {
+  content: "\e605";
+}
+
+.icon-star-half:before {
+  content: "\e604";
+}
+
+.icon-eye-on:before {
+  content: "\e666";
+}
+
+.icon-eye-close:before {
+  content: "\e670";
+}
+
+.icon-instagram:before {
+  content: "\e603";
+}
+
+.icon-logout:before {
+  content: "\e61d";
+}
+
+.icon-setting:before {
+  content: "\e616";
+}
+
+.icon-reset-password:before {
+  content: "\e60c";
+}
+
+.icon-remove:before {
+  content: "\e665";
+}
+
+.icon-edit:before {
+  content: "\e66e";
+}
+
+.icon-favorite:before {
+  content: "\e66f";
+}
+
+.icon-add-bold:before {
+  content: "\e685";
+}
+
+.icon-favorite-filling:before {
+  content: "\e68a";
+}
+
+.icon-open-verify:before {
+  content: "\e617";
+}
+
+.icon-youtube:before {
+  content: "\e675";
+}
+
+.icon-circle-arrow-right:before {
+  content: "\e607";
+}
+
+.icon-circle-arrow-left:before {
+  content: "\ec9e";
+}
+
+.icon-share:before {
+  content: "\e620";
+}
+
+.icon-more:before {
+  content: "\e602";
+}
+
+.icon-biggest-down:before {
+  content: "\eb19";
+}
+
+.icon-media:before {
+  content: "\e74e";
+}
+
+.icon-star:before {
+  content: "\e657";
+}
+
+.icon-star-filled:before {
+  content: "\e65a";
+}
+
+.icon-financing:before {
+  content: "\e660";
+}
+
+.icon-dapp:before {
+  content: "\e6c6";
+}
+
+.icon-yes:before {
+  content: "\e626";
+}
+
+.icon-APPstore:before {
+  content: "\e6f6";
+}
+
+.icon-no:before {
+  content: "\e609";
+}
+
+.icon-biggest-up:before {
+  content: "\e659";
+}
+
+.icon-key:before {
+  content: "\e60b";
+}
+
+.icon-transaction:before {
+  content: "\e60a";
+}
+
+.icon-turnover:before {
+  content: "\e615";
+}
+
+.icon-internet:before {
+  content: "\e606";
+}
+
+.icon-time:before {
+  content: "\e658";
+}
+
+.icon-hardware:before {
+  content: "\e9c2";
+}
+
+.icon-backtop:before {
+  content: "\e601";
+}
+
+.icon-menu:before {
+  content: "\e703";
+}
+
+.icon-android:before {
+  content: "\e612";
+}
+
+.icon-windows:before {
+  content: "\e93c";
+}
+
+.icon-ios:before {
+  content: "\e614";
+}
+
+.icon-linux:before {
+  content: "\e608";
+}
+
+.icon-googleplay:before {
+  content: "\e903";
+}
+
+.icon-tips:before {
+  content: "\e69b";
+}
+
+.icon-medium:before {
+  content: "\e8ff";
+}
+
+.icon-moon:before {
+  content: "\e611";
+}
+
+.icon-gas-station:before {
+  content: "\e632";
+}
+
+.icon-sun:before {
+  content: "\e663";
+}
+
+.icon-in:before {
+  content: "\e642";
+}
+
+.icon-telegram:before {
+  content: "\eaf9";
+}
+
+.icon-tumblr:before {
+  content: "\e699";
+}
+
+.icon-twitter:before {
+  content: "\ec9c";
+}
+
+.icon-skype:before {
+  content: "\e6fc";
+}
+
+.icon-facebook:before {
+  content: "\e650";
+}
+
+.icon-reddit:before {
+  content: "\e8a1";
+}
+
+.icon-whitepaper:before {
+  content: "\e61a";
+}
+
+.icon-user:before {
+  content: "\e6c9";
+}
+
+.icon-open:before {
+  content: "\e69d";
+}
+
+.icon-right:before {
+  content: "\ec9d";
+}
+
+.icon-down:before {
+  content: "\e613";
+}
+
+.icon-up:before {
+  content: "\ec9f";
+}
+
+.icon-solid-arrow-down:before {
+  content: "\e625";
+}
+
+.icon-solid-arrow-up:before {
+  content: "\e65f";
+}
+
+.icon-chat:before {
+  content: "\e610";
+}
+
+.icon-search:before {
+  content: "\e65e";
+}
+
+.icon-link:before {
+  content: "\e628";
+}
+
+.icon-gitHub:before {
+  content: "\e600";
+}
+
+.icon-copy:before {
+  content: "\e62f";
+}
+
