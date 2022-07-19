@@ -17,17 +17,24 @@
 					</span>
 				</div>
 				<div class="topbar-r d-flex">
-					<div>
-						<span class="font-size-10">
+					<div class="toggle position-relative" :class="{show_toggle:this.toggle}">
+						<span class="font-size-10" @click="toggledown()">
 							English
 							<i class="iconfont icon-down font-size-12"></i>
 						</span>
+						<ul class="dropdown-menu dropdown-animated shadow toggle-item font-size-12"  :class="{show_toggle:this.toggle}">
+							<li class="dropdown-item rounded" @click="toggledown()">English</li>
+							<li class="dropdown-item rounded" @click="toggledown()">简体中文</li>
+						</ul>
 					</div>
-					<div class="ml-3">
-						<span class="font-size-10">
+					<div class="ml-3 fait-dropdown position-relative" :class="{show_fait_drop:this.faitDropdown}">
+						<span class="font-size-10" @click="faitDropdownToggle()">
 							USD
 							<i class="iconfont icon-down font-size-12"></i>
 						</span>
+						<div class="fait-dropdown-menu dropdown-menu dropdown-animated shadow position-absolute" :class="{show_fait_drop:this.faitDropdown}">
+							<select_currency></select_currency>
+						</div>
 					</div>
 					<div class="ml-3"><span><i class="iconfont icon-moon"></i></span></div>
 				</div>
@@ -412,11 +419,15 @@
 </template>
 
 <script>
+import select_currency from './select_currency.vue';
 const axios = require('axios')
 export default {
+  components: { select_currency },
     data(){
         return {
-            input: "",
+            toggle: false,
+			faitDropdown:false,
+			input: "",
 			topbar: [
 				{
 					title: "Cryptocurrencies",
@@ -552,9 +563,17 @@ export default {
     },
     mounted() {
         this.hideBox();
+		this.toggleControll();
+		this.faitDropToggle();
 		this.valueList();
     },
     methods: {
+		toggledown: function(){
+			this.toggle = !this.toggle;
+		},
+		faitDropdownToggle:function(){
+			this.faitDropdown = !this.faitDropdown;
+		},
         getData: function () {
             var allData = [];
             axios.get("https://sapi.coincarp.com/api/v1/market/data/alllist?lang=en-US").then(result => {
@@ -681,7 +700,33 @@ export default {
                     this.SearchDropdown = false;
                 }
             });
-        }
+        },
+		toggleControll(){
+			document.addEventListener("click", (e) => {
+                // 如果当前点击的这个对象是这个模态框的话
+                if ((e.target).closest(".show_toggle")) {
+                    //  那么这个模态框还是显示的
+                    this.toggle = true;
+                }
+                else if (!(e.target).closest(".show_toggle")) {
+                    // 如果当前点击的这个对象是这个show按钮以外的对象，那么这个模态框就隐藏
+                    this.toggle = false;
+                }
+            });
+		},
+		faitDropToggle(){
+			document.addEventListener("click", (e) => {
+                // 如果当前点击的这个对象是这个模态框的话
+                if ((e.target).closest(".show_fait_drop")) {
+                    //  那么这个模态框还是显示的
+                    this.faitDropdown = true;
+                }
+                else if (!(e.target).closest(".fait-dropdown-menu")) {
+                    // 如果当前点击的这个对象是这个show按钮以外的对象，那么这个模态框就隐藏
+                    this.faitDropdown = false;
+                }
+            });
+		}
     },
 }
 </script>

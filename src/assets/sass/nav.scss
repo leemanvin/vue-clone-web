@@ -8,6 +8,27 @@
 		color: $blue;
 		span {color: $blue;}
 	}
+	.topbar-r {
+		.toggle {
+			.show_toggle {display: block;}
+		}
+		.toggle-item {
+			// background-color: #fff;
+			padding: 5px;
+			// position: absolute;
+			// z-index: 1;
+			min-width: 6rem;
+				top: 32px;
+			li {
+				padding: 5px 10px 5px 10px;
+			}
+		}
+		.fait-dropdown{
+			.fait-dropdown-menu {right: 0; padding: 0.5rem;}
+			.show_fait_drop {display: block;}
+			
+		}
+	}
 }
 //nav css
 .app-nav {
