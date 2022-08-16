@@ -3,7 +3,13 @@ table.dataTable , table.dataTable {
 }
 .index-table {
 	tbody {
-		.td1 {background-color: $body-bg!important;}
+		.odd {
+			.sorting_1 {background-color:#f9f9f9!important;}
+		}
+		.even {
+			.sorting_1 {background-color:#fff!important;}
+		}
+		// .td1 {background-color: $body-bg!important;}
 	}
 	
 	.td3,.td4,.td5,.td6,.td7,.td8,.td9 {text-align: right;}
