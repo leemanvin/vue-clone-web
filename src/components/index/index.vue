@@ -63,15 +63,19 @@
 			</el-table-column>
 		</el-table>
 	</div> -->
-	<div class="container mt-3 mb-3">
+	<div class="container mt-4 mb-3">
+		<TopCoin></TopCoin>
 		<TabsBtn></TabsBtn>
 		<IndexTable></IndexTable>
+		<Pagination></Pagination>
 	</div>
 </template>
 
 <script>
+import TopCoin from './sub_components/hight_light.vue';
 import IndexTable from './sub_components/table.vue';
 import TabsBtn from './sub_components/tabs.vue';
+import Pagination from './sub_components/pagination.vue';
 export default {
 	data(){
 		return{}
@@ -80,7 +84,7 @@ export default {
 	},
 	mounted(){},
 	methods(){},
-	components:{IndexTable,TabsBtn}
+	components:{TopCoin, IndexTable, TabsBtn, Pagination, Pagination }
 }
 </script>
 

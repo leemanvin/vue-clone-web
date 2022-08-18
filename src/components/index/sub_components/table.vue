@@ -31,8 +31,6 @@
 				</tr>
 			</tbody>
 		</table>
-			<el-pagination class="mx-auto mt-3" background layout="prev, pager, next" :total="1000"></el-pagination>
-		
 	</div>
 </template>
 
