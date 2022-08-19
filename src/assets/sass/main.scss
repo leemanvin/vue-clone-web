@@ -25,6 +25,10 @@ a {
 	&:visited {color: $body-color;}
 	text-decoration: none;
 }
+.h1,.h2,.h3,.h4,.h5,.h6 {
+	font-size: 16px;
+	font-weight: bold;
+}
 
 //font
 .font-weight-bold {font-weight: bold;}
@@ -170,3 +174,5 @@ div,ul{
 }
 .el-tooltip__popper {width: 200px; text-align: center;}
 .el-table__cell {width: auto;}
+
+.pointer {cursor: pointer;}
