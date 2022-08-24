@@ -2,6 +2,11 @@
     <div class="btn-group mb-3 index-tabs">
         <a class="btn btn-light font-size-12 font-weight-bold" v-for="list,index in tabsList" :key="index" :class="{current: currentBtn==index}" @click="currentState(index)">{{list}}</a>
     </div>
+    <!-- <div>
+      <b-button-group>
+        <b-button class="font-size-12 font-weight-bold" variant="light" v-for="list,index in tabsList" :key="index">{{list}}</b-button>
+      </b-button-group>
+    </div> -->
 </template>
 
 <script>

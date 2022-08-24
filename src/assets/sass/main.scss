@@ -82,6 +82,10 @@ a {
 //bg-color
 .gray-light {background-color: darken($search-bg,1%);}
 
+//changerate colors
+.green {color: #16c784!important;}
+.red {color: $red!important;}
+
 //animate
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
