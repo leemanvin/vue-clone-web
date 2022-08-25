@@ -11,8 +11,14 @@ table.dataTable , table.dataTable {
 		}
 		// .td1 {background-color: $body-bg!important;}
 	}
-	
+	thead {
+		tr {
+			td {border-bottom: 1px solid #ddd;}
+		}
+		
+	}
 	.td3,.td4,.td5,.td6,.td7,.td8,.td9 {text-align: right;}
+	.dataTable {border-bottom: 1px solid #ddd;}
 }
 @media (max-width:1024px){
 	.index-table {

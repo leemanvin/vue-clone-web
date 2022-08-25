@@ -8,6 +8,14 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+	font-family: 'Nunito-Bold';
+	src: url('../fonts/Nunito-Bold.woff');
+  //   src: local('fonts/Nunito-Regular'), url('//s1.qq.com/static/fonts/Nunito-Regular.eot?#iefix') format('embedded-opentype'), url('//s1.qq.com/static/fonts/Nunito-Regular.woff') format('woff'), url('//s1.qq.com/static/fonts/Nunito-Regular.ttf') format('truetype'), url('//s1.qq.com/static/fonts/Nunito-Regular.svg#Roboto') format('svg');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+  }
 
 @font-face {
   font-family: "iconfont"; /* Project id 2649327 */
@@ -31,7 +39,7 @@ a {
 }
 
 //font
-.font-weight-bold {font-weight: bold;}
+.font-weight-bold {font-family: 'Nunito-Bold'; font-weight: bold;}
 .font-weight-normal {font-weight: normal;}
 .font-size-10 {font-size: 10px!important;}
 .font-size-12 {font-size: 12px!important;}
@@ -42,7 +50,14 @@ a {
 .font-size-24 {font-size: 24px!important;}
 
 //btn style
-.btn-light {background-color: #eef2f7; border-color: #eef2f7;}
+.btn-light {background-color: #eef2f7; border-color: #eef2f7; padding: 0.45rem 0.9rem;}
+.hover-color {background-color: #d4deeb; border-color: #cbd7e7;}
+.none-shadow {box-shadow:none;}
+.btn-light:active {@extend .hover-color; @extend .none-shadow;}
+.btn-light:focus {@extend .hover-color; @extend .none-shadow;}
+.btn-light:hover {@extend .hover-color; @extend .none-shadow;}
+.btn-light:active:focus { @extend .none-shadow;}
+
 
 //margin
 .ml-1 {margin-left: 0.25rem!important;}
@@ -78,6 +93,7 @@ a {
 .text-red {color: $red!important;}
 .text-gray {color: $gray-500!important;}
 .text-blue {color: $blue!important;}
+.text_gray {@extend .text-gray;}
 
 //bg-color
 .gray-light {background-color: darken($search-bg,1%);}

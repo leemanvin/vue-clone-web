@@ -19,7 +19,7 @@
         <h6 class="font-size-16 font-weight-bold">Cryptocurrencies</h6>
         <ul class="currencies-list">
             <li class="d-flex align-items-center currencies-list-item" v-for="item in coins" :key="item.index">
-                <img :src="item.logo" width="20" height="20" />
+                <img class="border" :src="item.logo" width="20" height="20" />
                 <div class="ml-2 font-size-12 font-weight-bold">
                    <span class="d-block">{{item.name}}</span>
                    <span class="d-block">{{item.symbol}}</span>
@@ -193,6 +193,7 @@ export default {
 					grid-template-columns: 1fr 1fr 1fr;
 					grid-gap: 10px;
 					.currencies-list-item {
+                        img {border-radius: 30px; border: 1px solid #eee;}
 						span:last-child{
 							 color: $gray-600;
 						}

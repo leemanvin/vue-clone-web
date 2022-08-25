@@ -80,10 +80,6 @@ export default {
 	data(){
 		return{}
 	},
-	created(){
-	},
-	mounted(){},
-	methods(){},
 	components:{TopCoin, IndexTable, TabsBtn, Pagination, Pagination }
 }
 </script>

@@ -32,7 +32,7 @@
                                     <span class="coin-symbol">{{item.symbol}}</span>
                                 </div>
                                 <span class="font-size-12" :class="{green:item.changerate>=0,red:item.changerate<0}" v-if="list.listname=='Trending'||list.listname=='Biggest Gainners'">{{item.changerate}}%</span>
-                                <span class="font-size-12" v-if="list.listname=='Recently Added'|| list.listname=='Events Calendar'">{{item.date}}</span>
+                                <span class="font-size-12" :class="{'text-gray':list.listname=='Events Calendar'}" v-if="list.listname=='Recently Added'|| list.listname=='Events Calendar'">{{item.date}}</span>
                             </a>
                         </li>
                     </ul>
@@ -55,9 +55,12 @@
                         <el-carousel-item v-for="list in announcelist" :key="list">
                             <ul>
                                 <li v-for="item in list">
-                                    <a class="d-flex justify-contetn-between">
-                                        <p class="mb-0">{{item.newstitle}}</p>
-                                        <span class="text-gray">08/19</span>
+                                    <a class="d-flex justify-contetn-between font-size-12">
+                                        <p class="mb-0">
+                                            <img :src="item.logo" width="18" height="18" />
+                                            {{item.newstitle}}
+                                        </p>
+                                        <span class="text-gray">{{timestampToTime (item.issuetime)}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -250,6 +253,19 @@ export default {
             ],
         }
     },
+    methods: {
+        timestampToTime (timestamp) {
+       // 计算年月日时分的函数
+       var date = new Date(timestamp)
+       var Y = date.getFullYear() + '-'
+       var M = ((date.getMonth() + 1) < 10 ? '0':'') + (date.getMonth() + 1) + '/'
+       var D = (date.getDate()<10?'0':'')+date.getDate() + ' '
+       var h = date.getHours() + ':'
+       var m = date.getMinutes() + ':'
+       var s = date.getSeconds()
+       return M + D
+   }
+	},
 }
 </script>
 <style lang="scss" scoped>
@@ -278,7 +294,11 @@ export default {
             gap: 15px;
             li {
                 a {
-                    p {width: 350px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+                    line-height: 24px;
+                    p {
+                        img {border-radius: 30px;}
+                        width: 350px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+                    }
                 }
             }
         }
