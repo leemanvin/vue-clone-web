@@ -1,7 +1,8 @@
 <template>
   <div class="select-currency">
     <h4 class="font-size-16 font-weight-bold">Seclect Currency</h4>
-    <input class="form-control" type="text" placeholder="Search currency" />
+    <input class="form-control" type="text" v-model="searchStr" @input="searchRes" placeholder="Search currency" />
+    <!-- <p>{{searchStr}}</p> -->
     <div class="select-list-wrap mt-3">
     <div class="fiat">
         <h6 class="font-size-16 font-weight-bold">Fiat currencies</h6>
@@ -35,6 +36,9 @@
 export default {
     data(){
         return {
+            searchStr: '',
+            faitsArry: [],
+            coinsArry: [],
             faits:[
                         {
                             cur:"USD",
@@ -180,7 +184,35 @@ export default {
                             {cur:"BTC",name:"Bitcoin",symbol:"BTC",fait:false,logo:"//s1.coincarp.com/logo/1/bitcoin.png",rate:22180.82}
                             ]
         }
-    }
+    },
+    mounted() {
+        // console.log(this.searchStr);
+    },
+    methods: {
+        searchRes: function() {
+            this.faits=[];
+            var faitsName = '';
+            var coinsName = '';
+            for (let index = 0; index < this.faits.length; index++) {
+                faitsName = this.faits[index].name + this.faits[index].cur;
+                // coinsName = this.coins[index].name + this.coins[index].symbol;
+                // console.log(faitsName);
+                // console.log(coinsName);
+                if(faitsName.toLocaleLowerCase().indexOf(this.searchStr.toLocaleLowerCase())!= -1){
+                    // this.faits.push(
+                    //     {
+                    //         cur:this.faits[index].cur,
+                    //         name:this.faits[index].name,
+                    //         symbol:this.faits[index].symbol,
+                    //         fait:true,
+                    //         logo:this.faits[index].logo,
+                    //     }
+                    // );
+                    console.log("aaaaa"+this.faits);
+                }
+            }
+        }
+    },
 }
 </script>
 
