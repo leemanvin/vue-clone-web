@@ -2,7 +2,7 @@
     <!-- <div class="btn-group mb-3 index-tabs">
         <a class="btn btn-light font-size-12 font-weight-bold" v-for="list,index in tabsList" :key="index" :class="{current: currentBtn==index}" @click="currentState(index)">{{list}}</a>
     </div> -->
-    <div>
+    <div class="cate-btn">
       <b-button-group>
         <b-button class="font-size-12 font-weight-bold mb-3" variant="light" v-for="list,index in tabsList" :key="index" :class="{current: currentBtn==index}" @click="currentState(index)">{{list}}</b-button>
       </b-button-group>
@@ -66,5 +66,9 @@ export default {
 		overflow-x: scroll; width: 100%;
         .btn {white-space: nowrap;}
 	}
+  .cate-btn {
+    width: 100%; overflow-x: scroll;
+    .btn {white-space: nowrap;}
+  }
 }
 </style>

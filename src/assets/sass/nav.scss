@@ -1,4 +1,9 @@
 //topbar css
+.nav-content {
+	.nav-content-c {
+		flex-direction: column;
+	}
+}
 .top-bar {
 	background-color: #313a46;
 	span {
@@ -59,6 +64,7 @@
 			display: none;
 			.phone-menu-btn {font-size: 24px;}
 			.phone-search-btn {font-size: 18px;}
+			.phone-menu-btn,.phone-search-btn {background: none;}
 		}
 	}
 }
@@ -160,6 +166,15 @@
 }
 //phone nav css
 @media screen and (max-width: 1024px) {
+	.nav-content {
+		.nav-content-c {
+			flex-direction: column;
+			.top-bar {
+				order: 2; width: 100%; overflow-x: scroll; white-space: nowrap; background-color: #fff; border-bottom: 1px solid #e4eaf2;
+				.topbar-r {display: none!important;}
+			}
+		}
+	}
 	.app-nav {
 		padding-top: 10px; padding-bottom: 10px;
 		.navbar {

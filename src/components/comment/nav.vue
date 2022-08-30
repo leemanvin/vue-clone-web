@@ -1,6 +1,7 @@
 <template>
 	<div class="nav-content">
-		<div class="top-bar pt-2 pb-2">
+		<div class="d-flex nav-content-c">
+			<div class="top-bar pt-2 pb-2">
 			<div class="container p-0 d-flex justify-content-between">
 				<div class="topbar-l">
 					<span class="font-size-10 mr-2" v-for="(list,index) in topbar" :key="index">
@@ -61,7 +62,7 @@
 						<button class="phone-search-btn border-0 align-middle" @click="searchOpen">
 							<i class="bi bi-search"></i>
 						</button>
-						<button class="phone-menu-btn border-0 bg-light align-middle" @click="menuOpen">
+						<button class="phone-menu-btn border-0 align-middle" @click="menuOpen">
 							<i class="bi bi-list"></i>
 						</button>
 					</div>
@@ -85,94 +86,7 @@
 							</li>
 						</ul>
 					</div><!--input为空时显示trending-->
-					<!-- <div v-else class="dropdown-menu dropdown-animated shadow search-dropdown pt-3 pb-3" :class="{search_show:this.SearchDropdown}">
-							<b-tabs class="pl-3 pr-3" pills nav-class="search-pills" nav-wrapper-class="gray-light font-size-12 text-body" align="center" no-nav-style>
-								<b-tab title="All" active>
-									<div class="all-res">
-										<h4 class="font-size-12 text-gray">Cryptoassets</h4>
-										<ul>
-											<li class="dropdown-item" v-for="list in searchAllCryptoRes" :key="list.i" @click="searchDropdown">
-												<a class="font-size-12 d-flex justify-content-between">
-													<div class="d-flex align-items-center">
-														<img class="mr-1" :src="list.logo" width="20" height="20">
-														<span class="font-weight-bold mr-1 name">{{list.name}}</span>
-														<span class="symbol">({{list.symbol}})</span>
-													</div>
-												</a>
-											</li>
-										</ul>
-										<button class="text-blue font-size-12 border-0 bg-light">see all results({{this.searchCryptoRes.length}})</button>
-									</div>
-									<div class="all-res">
-										<h4 class="font-size-12 text-gray">Exchanges</h4>
-										<ul>
-											<li class="dropdown-item" v-for="list in searchAllExchangesRes" :key="list.i" @click="searchDropdown">
-												<a class="font-size-12 d-flex justify-content-between">
-													<div class="d-flex align-items-center">
-														<img class="mr-1" :src="list.logo" width="20" height="20">
-														<span class="font-weight-bold mr-1 name">{{list.name}}</span>
-													</div>
-												</a>
-											</li>
-										</ul>
-										<button class="text-blue font-size-12 border-0 bg-light">see all results({{this.searchExchangesRes.length}})</button>
-									</div>
-									<div class="all-res">
-										<h4 class="font-size-12 text-gray">Wallets</h4>
-										<ul>
-											<li class="dropdown-item" v-for="list in searchAllWalletsRes" :key="list.i" @click="searchDropdown">
-												<a class="font-size-12 d-flex justify-content-between">
-													<div class="d-flex align-items-center">
-														<img class="mr-1" :src="list.logo" width="20" height="20">
-														<span class="font-weight-bold mr-1 name">{{list.name}}</span>
-													</div>
-												</a>
-											</li>
-										</ul>
-										<button class="text-blue font-size-12 border-0 bg-light">see all results({{this.searchWalletsRes.length}})</button>
-									</div>
-								</b-tab>
-								<b-tab title="Cryptoassets">
-									<ul class="crypto-res">
-										<li class="dropdown-item" v-for="list in searchCryptoRes" :key="list.i">
-											<a class="font-size-12 d-flex justify-content-between">
-												<div class="d-flex align-items-center">
-													<img class="mr-1" :src="list.logo" width="20" height="20">
-													<span class="font-weight-bold mr-1 name">{{list.name}}</span>
-													<span class="symbol">({{list.symbol}})</span>
-												</div>
-												<span class="ranking text-gray"></span>
-											</a>
-										</li>
-									</ul>
-								</b-tab>
-								<b-tab title="Exchanges">
-									<ul class="exchanges-res">
-										<li class="dropdown-item" v-for="list in searchExchangesRes" :key="list.i">
-											<a class="font-size-12 d-flex justify-content-between">
-												<div class="d-flex align-items-center">
-													<img class="mr-1" :src="list.logo" width="20" height="20">
-													<span class="font-weight-bold mr-1 name">{{list.name}}</span>
-												</div>
-												<span class="ranking text-gray"></span>
-											</a>
-										</li>
-									</ul>
-								</b-tab>
-								<b-tab title="Wallets">
-									<ul class="wallets-res">
-										<li class="dropdown-item" v-for="list in walletsNameArr" :key="list.i">
-											<a class="font-size-12 d-flex">
-												<div class="d-flex align-items-center">
-													<img class="mr-1" :src="list.logo" width="20" height="20">
-													<span class="font-weight-bold mr-1 name">{{list.name}}</span>
-												</div>
-											</a>
-										</li>
-									</ul>
-								</b-tab>
-							</b-tabs>
-					</div> --><!--input不为空时显示结果-->
+					
 					<div v-else class="dropdown-menu dropdown-animated shadow search-dropdown p-2" :class="{search_show:this.SearchDropdown}">
 						<ul class="search-tabs d-flex font-size-12 gray-light">
 							<li>
@@ -277,6 +191,7 @@
 			</b-navbar>
 		</div>
 		<!--pc //-->
+		</div>
 		<div class="phone-menu-list bg-light" :class="{phone_menu_open: this.menuIsOpen}">
 			<div class="menu-brand d-flex justify-content-between container">
 				<a class="app-logo"></a>
@@ -302,7 +217,7 @@
 			</ul>
 		</div>
 		<!--phone-menu //-->
-		<div class="bg-light phone-search-list pb-3" :class="{phone_search_open: this.searchIsOpen}">
+		<div class="bg-light phone-search-list p-0" :class="{phone_search_open: this.searchIsOpen}">
 			<div class="phone-search-head d-flex justify-content-between p-3">
 				<div class="nav-search p-2 rounded w-100 mr-2">
 					<i class="bi bi-search align-self-center mx-1"></i>

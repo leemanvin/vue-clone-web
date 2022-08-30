@@ -24,7 +24,7 @@
                         <a class="border btn-outline-primary rounded pl-2 pr-2 pointer" v-if="list.listname!='Trending'">see more</a>
                     </div>
                     <ul>
-                        <li v-for="item in list.list">
+                        <li v-for="item in list.list" :key="item.index">
                             <a class="d-flex justify-content-between pt-1 pb-1">
                                 <div class="coin font-size-12">
                                     <img :src="item.logo" width="18" height="18" />
@@ -54,7 +54,7 @@
                     <el-carousel height="24px" direction="vertical" :autoplay="true" indicator-position="none">
                         <el-carousel-item v-for="list in announcelist" :key="list">
                             <ul>
-                                <li v-for="item in list">
+                                <li v-for="item in list" :key="item.index">
                                     <a class="d-flex justify-contetn-between font-size-12">
                                         <p class="mb-0">
                                             <img :src="item.logo" width="18" height="18" />
@@ -303,5 +303,9 @@ export default {
             }
         }
     }
-
+    @media screen and (max-width: 1024px) {
+        .hight-light {
+            display: none;
+        }
+    }
 </style>
