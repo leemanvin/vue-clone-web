@@ -4,10 +4,10 @@
     <input class="form-control" type="text" v-model="searchStr" @input="searchRes" placeholder="Search currency" />
     <!-- <p>{{searchStr}}</p> -->
     <div class="select-list-wrap mt-3">
-    <div class="fiat">
+    <div class="fiat" v-show="!this.noFaitRes">
         <h6 class="font-size-16 font-weight-bold">Fiat currencies</h6>
         <ul class="currencies-list">
-            <li class="d-flex align-items-center currencies-list-item" v-for="item in faits" :key="item.index">
+            <li class="d-flex align-items-center currencies-list-item" :class="{'hide-item':isShow[index]==false}" v-for="item,index in faits" :key="item.index">
                 <img :src="item.logo" width="20" height="20" />
                 <div class="ml-2 font-size-12 font-weight-bold">
                    <span class="d-block">{{item.name}}</span>
@@ -16,10 +16,10 @@
         </li>
         </ul>
     </div>
-    <div class="crypto mt-3">
+    <div class="crypto mt-3" v-show="!this.noCoinsRes">
         <h6 class="font-size-16 font-weight-bold">Cryptocurrencies</h6>
         <ul class="currencies-list">
-            <li class="d-flex align-items-center currencies-list-item" v-for="item in coins" :key="item.index">
+            <li class="d-flex align-items-center currencies-list-item" v-for="item,index in coins" :key="item.index" :class="{'hide-item':isShowCoins[index]==false}">
                 <img class="border" :src="item.logo" width="20" height="20" />
                 <div class="ml-2 font-size-12 font-weight-bold">
                    <span class="d-block">{{item.name}}</span>
@@ -27,6 +27,9 @@
                 </div>
         </li>
         </ul>
+    </div>
+    <div v-show="this.noRes" class="text-center mt-4 mb-4 text-gray">
+        No Result for "{{this.searchStr}}"
     </div>
     </div>
   </div>
@@ -176,40 +179,93 @@ export default {
                         {cur:"NGN",name:"Nigerian Naira",symbol:"\u20A6",fait:true,logo:"//s1.coincarp.com/logo/faits/ngn.svg",rate:0.002162},
                         {cur:"PKR",name:"Pakistani Rupee",symbol:"rs",fait:true,logo:"//s1.coincarp.com/logo/faits/pkr.svg",rate:0.00447}
                     ],
-                        coins:[
-                            {cur:"ETH",name:"Ethereum",symbol:"ETH",fait:false,logo:"//s1.coincarp.com/logo/1/ethereum.png",rate:1559.84},
-                            {cur:"XRP",name:"Ripple",symbol:"XRP",fait:false,logo:"//s1.coincarp.com/logo/1/ripple.png",rate:0.3637},
-                            {cur:"BCH",name:"Bitcoin Cash",symbol:"BCH",fait:false,logo:"//s1.coincarp.com/logo/1/bitcoin-cash.png",rate:123.66},
-                            {cur:"LTC",name:"Litecoin",symbol:"LTC",fait:false,logo:"//s1.coincarp.com/logo/1/litecoin.png",rate:57.523},
-                            {cur:"BTC",name:"Bitcoin",symbol:"BTC",fait:false,logo:"//s1.coincarp.com/logo/1/bitcoin.png",rate:22180.82}
-                            ]
+                    coins:[
+                        {cur:"ETH",name:"Ethereum",symbol:"ETH",fait:false,logo:"//s1.coincarp.com/logo/1/ethereum.png",rate:1559.84},
+                        {cur:"XRP",name:"Ripple",symbol:"XRP",fait:false,logo:"//s1.coincarp.com/logo/1/ripple.png",rate:0.3637},
+                        {cur:"BCH",name:"Bitcoin Cash",symbol:"BCH",fait:false,logo:"//s1.coincarp.com/logo/1/bitcoin-cash.png",rate:123.66},
+                        {cur:"LTC",name:"Litecoin",symbol:"LTC",fait:false,logo:"//s1.coincarp.com/logo/1/litecoin.png",rate:57.523},
+                        {cur:"BTC",name:"Bitcoin",symbol:"BTC",fait:false,logo:"//s1.coincarp.com/logo/1/bitcoin.png",rate:22180.82}
+                    ],
+                    currentNumber:0,
+                    isShow:[],
+                    isShowCoins:[],
+                    noRes:false,
+                    noFaitRes:false,
+                    noCoinsRes:false,
         }
     },
     mounted() {
         // console.log(this.searchStr);
     },
     methods: {
+        currentClass(index) {
+            return [this.currentNumber == index ? 'active' : ''];
+        },
         searchRes: function() {
-            this.faits=[];
             var faitsName = '';
             var coinsName = '';
             for (let index = 0; index < this.faits.length; index++) {
                 faitsName = this.faits[index].name + this.faits[index].cur;
-                // coinsName = this.coins[index].name + this.coins[index].symbol;
-                // console.log(faitsName);
-                // console.log(coinsName);
-                if(faitsName.toLocaleLowerCase().indexOf(this.searchStr.toLocaleLowerCase())!= -1){
-                    // this.faits.push(
-                    //     {
-                    //         cur:this.faits[index].cur,
-                    //         name:this.faits[index].name,
-                    //         symbol:this.faits[index].symbol,
-                    //         fait:true,
-                    //         logo:this.faits[index].logo,
-                    //     }
-                    // );
-                    console.log("aaaaa"+this.faits);
+                if(this.isShow.length < index+1){
+                   this.isShow.push(true); 
                 }
+                if(faitsName.toLocaleLowerCase().indexOf(this.searchStr.toLocaleLowerCase()) != -1){
+                    this.isShow[index]=true;
+                    // console.log(this.currentNumber+':'+faitsName);
+                }else{
+                    this.isShow[index]=false;
+                }
+                if(this.searchStr.length==0){
+                    this.isShow[index] = true;
+                }
+            }
+            if(this.isShow.every(
+                function f(value,index,arry){
+                   if(value==false){
+                    return true
+                   }else{
+                    return false
+                   }
+                } 
+            )){
+                this.noFaitRes = true;
+            }else{
+                this.noFaitRes = false;
+            }
+            for (let index = 0; index < this.coins.length; index++) {
+                coinsName = this.coins[index].name + this.coins[index].symbol;
+                if(this.isShowCoins.length<index+1){
+                   this.isShowCoins.push(true); 
+                }
+                console.log(coinsName.toLocaleLowerCase().indexOf(this.searchStr.toLocaleLowerCase()));
+                if(coinsName.toLocaleLowerCase().indexOf(this.searchStr.toLocaleLowerCase()) != -1){
+                    this.isShowCoins[index]=true;
+                    console.log(coinsName);
+                }else{
+                    this.isShowCoins[index]=false
+                }
+                if(this.searchStr.length==0){
+                    this.isShowCoins[index] = true;
+                }
+            }
+            if(this.isShowCoins.every(
+                function f(value,index,arry){
+                   if(value==false){
+                    return true
+                   }else{
+                    return false
+                   }
+                } 
+            )){
+                this.noCoinsRes = true;
+            }else{
+                this.noCoinsRes = false;
+            }
+            if(this.noFaitRes==true && this.noCoinsRes==true){
+                this.noRes=true;
+            }
+            else{
+                this.noRes = false;
             }
         }
     },
@@ -230,6 +286,7 @@ export default {
 							 color: $gray-600;
 						}
 					}
+                    .hide-item {display: none!important;;}
 				}
                 .select-list-wrap{
                     max-height: 360px;
