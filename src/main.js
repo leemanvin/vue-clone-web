@@ -25,6 +25,9 @@ import {datatable} from "./jquery.dataTables.min.js"
 // Vue.use(Plugin)
 // Vue.use(AFTableColumn)
 // Vue.component(VeLine.name, VeLine)
+//mock
+import '../mock/mockServe'
+//
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 Vue.use(ElementUI)

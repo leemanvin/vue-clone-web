@@ -52,7 +52,7 @@
                 </ul> -->
                 <div style="width: 100%;">
                     <el-carousel height="24px" direction="vertical" :autoplay="true" indicator-position="none">
-                        <el-carousel-item v-for="list in announcelist" :key="list">
+                        <el-carousel-item v-for="list in announcelist" :key="list.index">
                             <ul>
                                 <li v-for="item in list" :key="item.index">
                                     <a class="d-flex justify-contetn-between font-size-12">
