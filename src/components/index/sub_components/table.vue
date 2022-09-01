@@ -15,7 +15,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="data in tableData" :key="data.index">
+				<tr v-for="data in coinslist" :key="data.index">
 					<td class="td1">{{data.rankno}}</td>
 					<td class="td2">
 						<router-link target="_blank" class="d-flex" :to="{name:'currencies',params: {symbol:data.coincode}}">
@@ -504,6 +504,7 @@ export default {
 				"chartData": '0.92,0.93,0.93,0.92,0.93,0.93,0.89,0.9,0.89,0.9,0.9,0.91,0.89,0.87,0.87,0.89,0.92,0.95,0.95,0.94,0.95,0.99,1,0.98,0.99,0.97,0.98,0.99,1'
             }
         ],
+		coinslist: []
 	}
   },
   created() {
@@ -532,18 +533,18 @@ export default {
 	  			$('.dataTables_paginate > .pagination').addClass('pagination-rounded');
 	  		}
 	  	});
-	  })
+	  }),
+	  
+	axios.get('/coins/list').then(res=>{
+		this.coinslist = res.data.list;
+		// console.log(coinslist);
+	})
   },
   mounted() {
-	  this.getList();
+	  
   },
   methods: {
-	getList(){
-		var coinslist = [];
-		axios.get('/coins/list').then(res=>{
-			console.log(res);
-		})
-	},
+	
 	  qqq(){
 		this.$nextTick(()=>{
 			  console.log($('.cell').html())
