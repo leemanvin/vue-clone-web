@@ -507,41 +507,75 @@ export default {
 		coinslist: []
 	}
   },
+  beforeCreate() {
+	console.log('before:'+this.coinslist)
+  },
   created() {
-	  //datable init
-	  $(document).ready(function() {
-	  	"use strict"; 
-	  	$('#scroll-horizontal-datatable').DataTable({
-	  		// "scrollX": true,
-	  		searching:false, 
-	  		bLengthChange:false,
-	  		"paging": false,
-	  		"info": false, 
-	  		// fixedColumns:   {
-	  		//     leftColumns: 1,
-	  		// },
-	  		"language": {
-	  			"paginate": {
-	  				"previous": "<i class='mdi mdi-chevron-left'>",
-	  				"next": "<i class='mdi mdi-chevron-right'>"
-	  			}
-	  		},
-	  		columnDefs: [
-	  					 { type: 'num-html', targets: 7 }
-	  				   ],
-	  		"drawCallback": function () {
-	  			$('.dataTables_paginate > .pagination').addClass('pagination-rounded');
-	  		}
-	  	});
-	  }),
-	  
+	// 请求数据
 	axios.get('/coins/list').then(res=>{
 		this.coinslist = res.data.list;
-		// console.log(coinslist);
+		console.log('created:'+ this.coinslist);
 	})
+	// console.log('created:'+ this.coinslist)
+  },
+  watch:{
+	coinslist(){
+		this.$nextTick(()=>{
+			console.log('qqqqqqq:'+this.coinslist);
+		})
+	}
   },
   mounted() {
-	  
+	console.log('mounted')
+	//datable init
+	$(document).ready(function() {
+	"use strict"; 
+	$('#scroll-horizontal-datatable').DataTable({
+		// "scrollX": true,
+		searching:false, 
+		bLengthChange:false,
+		"paging": false,
+		"info": false, 
+		// fixedColumns:   {
+		//     leftColumns: 1,
+		// },
+		"language": {
+			"paginate": {
+				"previous": "<i class='mdi mdi-chevron-left'>",
+				"next": "<i class='mdi mdi-chevron-right'>"
+			}
+		},
+		columnDefs: [
+						{ type: 'num-html', targets: 7 }
+					],
+		"drawCallback": function () {
+			$('.dataTables_paginate > .pagination').addClass('pagination-rounded');
+		},
+		// ajax: function(data, callback, settings){
+		// 	// console.log('aaaaaa'+data);
+		// 	$.ajax({
+		// 		type:"GET",
+		// 		url: "/coins/list",
+		// 		cache: true,
+		// 		dataType: "json",
+		// 		success: function (result) {
+		// 			console.log(result);
+		// 			this.coinslist = result.list;
+		// 			console.log(this.coinslist)
+		// // 			$.each(result, function(i, result) {
+        // //     var body = "<tr>";
+        // //     body    += "<td>" + result.list[i].rankno + "</td>";
+        // //     body    += "<td>" + result.list[i].name + "</td>";
+        // //     body    += "</tr>";
+        // //     $( "#scroll-horizontal-datatable" ).append(body);
+        // // });
+        // /*DataTables instantiation.*/
+        // $( "#scroll-horizontal-datatable" ).DataTable().draw();
+		// 		}
+		// 	})
+		// }
+	});
+	})
   },
   methods: {
 	
