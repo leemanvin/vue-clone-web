@@ -1,0 +1,37 @@
+{
+"list":[
+    {
+        "title": "Cryptocurrencies",
+        "value": 19827
+    },
+    {
+        "title": "Exchanges",
+        "value": 818
+    },
+    {
+        "title": "Market Cap",
+        "value": 963379185136
+    },
+    {
+        "title": "24h Vol",
+        "value": 94039233565
+    },
+    {
+        "title": "Dominance",
+        "value": [
+            {
+                "coin":"BTC",
+                "change_rate": 40.4
+            },
+            {
+                "coin": "ETH",
+                "change_rate": 14.9
+            }
+        ]
+    },
+    {
+        "title": "ETH Gas",
+        "value": 35
+    }
+]
+}

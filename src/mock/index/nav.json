@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Cryptocurrencies",
+        "path": "/",
+        "isDropdown": true,
+        "hover": true,
+        "dropdownList": [
+            { "listName": "Ranking", "listpath": "/" },
+            { "listName": "Recently Added", "listpath": "/new-crypto" },
+            { "listName": "Global Charts", "listpath": "/charts" },
+            { "listName": "Spotlight", "listpath": "/best-cryptos" },
+            { "listName": "Gainers & Losers", "listpath": "/gainers-losers" }
+        ]
+    },
+    {
+        "name": "Exchanges",
+        "path": "/exchanges",
+        "isDropdown": true,
+        "hover": true,
+        "dropdownList": [
+            { "listName": "Spot", "listpath": "/exchanges" },
+            { "listName": "Derivatives", "listpath": "/exchanges/derivatives" },
+            { "listName": "Dex", "listpath": "/exchanges/dex" }
+        ]
+    },
+    {
+        "name": "Converter",
+        "path": "/test",
+        "isDropdown": false,
+        "hover": false,
+        "dropdown": false,
+        "dropdownList": []
+    },
+    {
+        "name": "Charts",
+        "path": "./src/LineChart",
+        "isDropdown": false,
+        "hover": false,
+        "dropdown": false,
+        "dropdownList": []
+    }
+]
